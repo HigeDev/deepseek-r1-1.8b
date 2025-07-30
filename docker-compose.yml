@@ -5,17 +5,16 @@ services:
     ports:
       - "11434:11434"
     volumes:
-      - ollama-data:/root/.ollama
+      - .ollama-data:/root/.ollama
     restart: unless-stopped
 
   openwebui:
-    image: ghcr.io/open-webui/open-webui:v0.5.20
-    container_name: openwebui
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
     expose:
       - "8080"
     environment:
       - OLLAMA_BASE_URL=http://ollama:11434
-      - OLLAMA_MODELS_GLOBAL=true
     depends_on:
       - ollama
     volumes:
