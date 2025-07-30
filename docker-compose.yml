@@ -15,7 +15,6 @@ services:
       - "8080" # expose internal, tidak perlu dipetakan ke host
     environment:
       - OLLAMA_BASE_URL=http://ollama:11434
-      - OLLAMA_MODELS_GLOBAL=true # <- Tambahkan ini
     depends_on:
       - ollama
     volumes:
